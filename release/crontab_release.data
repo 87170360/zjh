@@ -1,0 +1,14 @@
+# 刷新排行榜，每天凌晨1点刷新
+0 1 * * * 	/usr/local/php/bin/php    -c /usr/local/php/lib/ -f /data/php/wan.cn/zjhapi/cron.php  action=TimeTask
+# 在线玩家统计，每一分钟调一次 
+*/1 * * * *	/usr/local/php/bin/php    -c /usr/local/php/lib/ -f /data/php/wan.cn/zjhapi/cron.php  action=Onplay
+#  2小时刷新玩家用户数据
+0 */2 * * * 	/usr/local/php/bin/php    -c /usr/local/php/lib/ -f /data/php/wan.cn/zjhapi/cron.php  action=OffLine
+# 日志回传，每30分钟刷新 
+*/30 * * * * 	/usr/local/php/bin/php    -c /usr/local/php/lib/ -f /data/php/wan.cn/zjhapi/cron.php  action=LogToMysql
+# 小喇叭 每5分钟调一次
+*/5 * * * * 	/usr/local/php/bin/php    -c /usr/local/php/lib/ -f /data/php/wan.cn/zjhapi/cron.php  action=Laba
+# 活跃统计 每30分钟调一次
+*/30 * * * * 	/usr/local/php/bin/php    -c /usr/local/php/lib/ -f /data/php/wan.cn/zjhapi/cron.php  action=UserActivity
+#留存统计每2小时一次
+0 */2 * * * 	/usr/local/php/bin/php    -c /usr/local/php/lib/ -f /data/php/wan.cn/zjhapi/cron.php  action=UserKeep day=0
